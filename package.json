@@ -2,7 +2,7 @@
   "name": "vector2d",
   "version": "1.0.0",
   "description": "A Vector2 library for JavaScript.",
-  "main": "gulpfile.js",
+  "main": "vector2D.js",
   "dependencies": {
   },
   "devDependencies": {
