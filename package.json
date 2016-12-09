@@ -1,0 +1,36 @@
+{
+  "name": "vector2d",
+  "version": "1.0.0",
+  "description": "A Vector2 library for JavaScript.",
+  "main": "gulpfile.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "jasmine": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "q": "^1.4.1"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hprofit/Vector2D.git"
+  },
+  "keywords": [
+    "vector",
+    "vector2",
+    "2D",
+    "vectorjs"
+  ],
+  "author": "Holden Profit <holdenprofit@gmail.com> (https://github.com/hprofit/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hprofit/Vector2D/issues"
+  },
+  "homepage": "https://github.com/hprofit/Vector2D#readme"
+}
