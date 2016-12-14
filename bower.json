@@ -1,0 +1,23 @@
+{
+  "name": "vector2d",
+  "description": "A Vector2 library for JavaScript.",
+  "main": "vector2D.js",
+  "authors": [
+    "Holden Profit <holdenprofit@gmail.com> (https://github.com/hprofit/)"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "vector",
+    "vector2",
+    "2D",
+    "vectorjs"
+  ],
+  "homepage": "https://github.com/hprofit/Vector2D",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

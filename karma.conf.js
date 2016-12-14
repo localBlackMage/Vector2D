@@ -18,7 +18,7 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             'vector2D.js',
-            'vector2D.spec.js'
+            'tests/vector2D.spec.js'
         ],
 
         // list of files / patterns to exclude
