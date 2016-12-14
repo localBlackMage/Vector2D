@@ -36,8 +36,21 @@ describe("Vector2D Model", function () {
         expect(vecFour.y).toBe(1);
     });
 
+    it("should throw a TypeError if the given x or y values are null or cannot be converted to a number", function () {
+        expect(function () {
+            return Vector2D({});
+        }).toThrowError('Both X and Y values for a Vector2D need to be numbers.');
+        expect(function () {
+            return Vector2D(1, {});
+        }).toThrowError('Both X and Y values for a Vector2D need to be numbers.');
+        expect(function () {
+            return Vector2D(function () {
+            });
+        }).toThrowError('Both X and Y values for a Vector2D need to be numbers.');
+    });
+
     it("should calculate it's length", function () {
-        var vec = new Vector2D(defaultVector2D.x, defaultVector2D.y) , res,
+        var vec = new Vector2D(defaultVector2D.x, defaultVector2D.y), res,
             expected = Math.sqrt(Math.pow(defaultVector2D.x, 2) + Math.pow(defaultVector2D.y, 2));
 
         res = vec.length();
@@ -45,24 +58,21 @@ describe("Vector2D Model", function () {
         expect(res).toBe(expected);
     });
 
-    it("should calculate it's magnitude (another name for length)", function () {
-        var vec = new Vector2D(defaultVector2D.x, defaultVector2D.y) , res;
+    it("should throw an error when trying to calculate it's length and X or Y are not numbers", function () {
+        var vec = new Vector2D(defaultVector2D.x, defaultVector2D.y);
 
-        spyOn(vec, 'length').and.callFake(function () {
-            return 1;
-        });
+        vec.x = 'not a number';
 
-        res = vec.magnitude();
-
-        expect(res).toBe(1);
-        expect(vec.length).toHaveBeenCalled();
+        expect(function () {
+            return vec.length();
+        }).toThrowError('Vector2D X and Y must be Numbers.');
     });
 
     it("should calculate it's normal", function () {
         var vec = new Vector2D(defaultVector2D.x, defaultVector2D.y),
             res,
             length = vec.length(),
-            expected = new Vector2D(defaultVector2D.x / length,  defaultVector2D.y / length);
+            expected = new Vector2D(defaultVector2D.x / length, defaultVector2D.y / length);
 
         res = vec.normalize();
 
@@ -162,14 +172,14 @@ describe("Vector2D Model", function () {
     });
 
     it('should convert a vector to an angle in radians', function () {
-        var vector = new Vector2D(defaultVector2D.x, defaultVector2D.y) ,
+        var vector = new Vector2D(defaultVector2D.x, defaultVector2D.y),
             angle = vector.vectorToAngleRadians();
 
         expect(angle).toBe(45 * Math.PI / 180);
     });
 
     it('should convert a vector to an angle in degrees', function () {
-        var vector = new Vector2D(defaultVector2D.x, defaultVector2D.y) ,
+        var vector = new Vector2D(defaultVector2D.x, defaultVector2D.y),
             angle = vector.vectorToAngleDegrees();
 
         expect(angle).toBe(45);

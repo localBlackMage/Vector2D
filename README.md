@@ -8,3 +8,29 @@ all the essential needs for a 2D vector!
 bower install vector2d --save
 ```
 
+###Usage
+
+Simply `new Vector2D()` to get started.
+```javascript
+var vector = new Vector2D(1, 2);
+```
+
+Any given Vector2D has access to the following functionality:
+
+##Compare
+#Parameters
+otherVector - Vector2D or { x: Number, y: Number }
+
+#Returns
+Boolean - true if both x's and y's are equal
+
+```javascript
+var vec1 = new Vector2D(1, 1);
+var vec2 = new Vector2D(1, 2);
+var vec3 = new Vector2D(1, 1);
+var vectorsAreSame;
+
+vectorsAreSame = vec1.compare(vec2); // false
+vectorsAreSame = vec1.compare(vec3); // true
+vectorsAreSame = vec1.compare(vec1); // true
+```
