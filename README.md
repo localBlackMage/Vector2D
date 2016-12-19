@@ -1,14 +1,14 @@
-###Vector2D [![Build Status](https://travis-ci.org/hprofit/Vector2D.svg?branch=master)](https://travis-ci.org/hprofit/Vector2d)
+#Vector2D [![Build Status](https://travis-ci.org/hprofit/Vector2D.svg?branch=master)](https://travis-ci.org/hprofit/Vector2d)
 
 Vector2D is a simple 2D vector library for javascript, fully tested and providing
 all the essential needs for a 2D vector!
 
-###Installation
+#Installation
 ```
 bower install vector2d --save
 ```
 
-###Usage
+#Usage
 
 Simply `new Vector2D()` to get started.
 ```javascript
@@ -17,14 +17,14 @@ var vector = new Vector2D(1, 2);
 
 Any given Vector2D has access to the following functionality:
 
-###Addition
+#Addition
 ##vector.add(otherVector)
 Increments `vector` by the `otherVector`'s X and Y
 
-#Parameters
+###Parameters
 overVector - Vector2D or { x: Number, y: Number }
 
-#Returns
+###Returns
 N/A
 
 ```javascript
@@ -38,10 +38,10 @@ vec2.add(vec1); // vec2.x = 2, vec2.y = 4
 ##vector.addNew(otherVector)
 Adds `vector` and `otherVector` together and returns the result as a new Vector2
 
-#Parameters
+###Parameters
 overVector - Vector2D or { x: Number, y: Number }
 
-#Returns
+###Returns
 N/A
 
 ```javascript
@@ -52,14 +52,14 @@ var vec3 = vec1.addNew(vec2); // vec3.x = 4, vec3.y = 6
 var vec4 = vec3.addNew(vec2); // vec4.x = 7, vec4.y = 10
 ```
 
-###Subtraction
+#Subtraction
 ##vector.sub(otherVector)
 Decrements `vector` by the `otherVector`'s X and Y
 
-#Parameters
+###Parameters
 overVector - Vector2D or { x: Number, y: Number }
 
-#Returns
+###Returns
 N/A
 
 ```javascript
@@ -73,10 +73,10 @@ vec2.sub(vec1); // vec2.x = 0, vec2.y = 6
 ##vector.subNew(otherVector)
 Subtracts `otherVector` from `vector` together and returns the result as a new Vector2
 
-#Parameters
+###Parameters
 overVector - Vector2D or { x: Number, y: Number }
 
-#Returns
+###Returns
 N/A
 
 ```javascript
@@ -90,11 +90,14 @@ var vec4 = vec3.subNew(vec2); // vec4.x = -1, vec4.y = -2
 
 
 
-###Compare
-#Parameters
+#Compare
+##vector.compare(otherVector)
+Compares the X and Y of both vectors to see if they match
+
+###Parameters
 otherVector - Vector2D or { x: Number, y: Number }
 
-#Returns
+##Returns
 Boolean - true if both x's and y's are equal
 
 ```javascript
