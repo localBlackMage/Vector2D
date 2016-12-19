@@ -21,6 +21,8 @@ Any given Vector2D has access to the following functionality:
 ##vector.add(otherVector)
 Increments `vector` by the `otherVector`'s X and Y
 
+**Throws a TypeError if either `otherVector.x` or `otherVector.y` isNaN**
+
 ###Parameters
 overVector - Vector2D or { x: Number, y: Number }
 
@@ -38,11 +40,13 @@ vec2.add(vec1); // vec2.x = 2, vec2.y = 4
 ##vector.addNew(otherVector)
 Adds `vector` and `otherVector` together and returns the result as a new Vector2
 
+**Throws a TypeError if either `otherVector.x` or `otherVector.y` isNaN**
+
 ###Parameters
 overVector - Vector2D or { x: Number, y: Number }
 
 ###Returns
-N/A
+Vector2
 
 ```javascript
 var vec1 = new Vector2D(1, 2);
@@ -55,6 +59,8 @@ var vec4 = vec3.addNew(vec2); // vec4.x = 7, vec4.y = 10
 #Subtraction
 ##vector.sub(otherVector)
 Decrements `vector` by the `otherVector`'s X and Y
+
+**Throws a TypeError if either `otherVector.x` or `otherVector.y` isNaN**
 
 ###Parameters
 overVector - Vector2D or { x: Number, y: Number }
@@ -73,11 +79,13 @@ vec2.sub(vec1); // vec2.x = 0, vec2.y = 6
 ##vector.subNew(otherVector)
 Subtracts `otherVector` from `vector` together and returns the result as a new Vector2
 
+**Throws a TypeError if either `otherVector.x` or `otherVector.y` isNaN**
+
 ###Parameters
 overVector - Vector2D or { x: Number, y: Number }
 
 ###Returns
-N/A
+Vector2
 
 ```javascript
 var vec1 = new Vector2D(1, 2);
@@ -87,7 +95,79 @@ var vec3 = vec2.subNew(vec1); // vec3.x = 2, vec3.y = 2
 var vec4 = vec3.subNew(vec2); // vec4.x = -1, vec4.y = -2
 ```
 
+#Multiplication
+##vector.mul(scalar)
+Multiplies `vector`'s X and Y by the `scalar`
 
+**Throws a TypeError if scalar isNaN**
+
+###Parameters
+scalar - Number
+
+###Returns
+N/A
+
+```javascript
+var vector = new Vector2D(1, 2);
+var scalar = 2.5;
+
+vector.mul(scalar); // vector.x = 2.5, vector.y = 5
+```
+
+##vector.mulNew(scalar)
+Multiplies `vector`'s X and Y by the `scalar` and returns the result as a new Vector2
+
+**Throws a TypeError if scalar isNaN**
+
+###Parameters
+scalar - Number
+
+###Returns
+Vector2
+
+```javascript
+var vec1 = new Vector2D(1, 2);
+var scalar = 2.5;
+
+var vec2 = vec1.mulNew(scalar); // vec2.x = 2.5, vec2.y = 5
+```
+
+#Division
+##vector.div(divisor)
+Divides `vector`'s X and Y by the `divisor`
+
+**Throws a TypeError if divisor isNaN or 0**
+
+###Parameters
+divisor - Number
+
+###Returns
+N/A
+
+```javascript
+var vector = new Vector2D(4, 2);
+var divisor = 2;
+
+vector.div(divisor); // vector.x = 2, vector.y = 1
+```
+
+##vector.divNew(divisor)
+Divides `vector`'s X and Y by the `divisor` and returns the result as a new Vector2
+
+**Throws a TypeError if divisor isNaN or 0**
+
+###Parameters
+divisor - Number
+
+###Returns
+Vector2
+
+```javascript
+var vec1 = new Vector2D(1, 2);
+var divisor = 2;
+
+var vec2 = vec1.divNew(scalar); // vec2.x = .5, vec2.y = 1
+```
 
 
 #Compare
