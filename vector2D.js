@@ -26,7 +26,8 @@ window.Vector2D = (function () {
      * @returns {boolean} - True if both x's and y's are the same
      */
     Vector2D.prototype.compare = function (otherVector) {
-        if (!isNaN(otherVector.x) && !isNaN(otherVector.y)) {
+        if (!isNaN(otherVector.x) && !isNaN(otherVector.y) &&
+            !isNaN(this.x) && !isNaN(this.y)) {
             return this.x === otherVector.x && this.y === otherVector.y;
         }
         else {

@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "A Vector2 library for JavaScript.",
   "main": "vector2D.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "gulp": "3.9.1",
+    "gulp-minify": "0.0.14",
     "jasmine": "2.5.2",
     "karma": "1.3.0",
     "karma-coverage": "1.1.1",

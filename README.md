@@ -169,6 +169,76 @@ var divisor = 2;
 var vec2 = vec1.divNew(scalar); // vec2.x = .5, vec2.y = 1
 ```
 
+#Angle to Vector
+##Vector2D.angleToVector2D(angle)
+Takes an angle in Degrees and creates a Vector2D from it matching the rotation given
+
+**Throws a TypeError if angle isNaN**
+
+###Parameters
+angle - Number (in degrees)
+
+##Returns
+Vector2D
+
+```javascript
+var vec1 = Vector2D.angleToVector2D(0);     // vec1.x = 1, vec1.y = 0
+var vec2 = Vector2D.angleToVector2D(90);    // vec1.x = 0, vec1.y = 1
+var vec3 = Vector2D.angleToVector2D(180);   // vec1.x = -1, vec1.y = 0
+var vec4 = Vector2D.angleToVector2D(270);   // vec1.x = 0, vec1.y = -1
+var vec5 = Vector2D.angleToVector2D(45);    // vec1.x = 0.71, vec1.y = 0.71
+```
+
+#Vector to Angle
+##vector.vectorToAngleRadians()
+Returns the angle in Radians of the calling vector
+
+**Throws a TypeError if `vector.x` or `vector.y` isNaN**
+
+###Parameters
+N/A
+
+##Returns
+Number - Angle of Vector2D in Radians
+
+```javascript
+var vec1 = new Vector2D(1, 0);
+var vec2 = new Vector2D(0, 1);
+var vec3 = new Vector2D(-1, 0);
+var vec4 = new Vector2D(0, -1);
+var vec5 = new Vector2D(.71, .71);
+
+var angle1 = vec1.vectorToAngleRadians();   // 0
+var angle2 = vec2.vectorToAngleRadians();   // 1.5707963267948966
+var angle3 = vec3.vectorToAngleRadians();   // 3.141592653589793
+var angle4 = vec4.vectorToAngleRadians();   // -1.5707963267948966
+var angle5 = vec5.vectorToAngleRadians();   // 0.7853981633974483
+```
+
+##vector.vectorToAngleDegrees()
+Returns the angle in Degrees of the calling vector
+
+**Throws a TypeError if `vector.x` or `vector.y` isNaN**
+
+###Parameters
+N/A
+
+##Returns
+Number - Angle of Vector2D in Degrees
+
+```javascript
+var vec1 = new Vector2D(1, 0);
+var vec2 = new Vector2D(0, 1);
+var vec3 = new Vector2D(-1, 0);
+var vec4 = new Vector2D(0, -1);
+var vec5 = new Vector2D(.71, .71);
+
+var angle1 = vec1.vectorToAngleDegrees();   // 0
+var angle2 = vec2.vectorToAngleDegrees();   // 90
+var angle3 = vec3.vectorToAngleDegrees();   // 180
+var angle4 = vec4.vectorToAngleDegrees();   // -90
+var angle5 = vec5.vectorToAngleDegrees();   // 45
+```
 
 #Compare
 ##vector.compare(otherVector)
@@ -189,4 +259,69 @@ var vectorsAreSame;
 vectorsAreSame = vec1.compare(vec2); // false
 vectorsAreSame = vec1.compare(vec3); // true
 vectorsAreSame = vec1.compare(vec1); // true
+```
+
+#Length
+##vector.length()
+Calculates the length of the vector and returns it
+
+###Parameters
+N/A
+
+##Returns
+Number - Length of the Vector2D
+
+```javascript
+var vec1 = new Vector2D(1, 0);
+var vec2 = new Vector2D(1, 1);
+var vec3 = new Vector2D(10, 0);
+
+vec1.length();  // 1
+vec2.length();  // 1.4142135623730951
+vec3.length();  // 10
+```
+
+##vector.magnitude()
+Alias for vector.length
+
+#Distance
+##vector.distance(otherVector)
+Calculates the length of the distance between `vector` and `otherVector`
+
+###Parameters
+otherVector - Vector2D or { x: Number, y: Number }
+
+##Returns
+Number - Length of the Vector2D between `vector` and `otherVector`
+
+```javascript
+var vec1 = new Vector2D(1, 0);
+var vec2 = new Vector2D(1, 1);
+var vec3 = new Vector2D(10, 0);
+
+var dist1 = vec1.distance(vec2);    // 1
+var dist2 = vec1.distance(vec3);    // 9
+var dist3 = vec2.distance(vec3);    // 9.055385138137417
+```
+
+#Normalize
+##vector.normalize(scalar)
+Normalizes `vector` such that it has a length of 1, scales it if a `scalar` was given, and returns a new Vector2D
+representing the normalized `vector`
+
+###Parameters
+scalar - Number, optional number to scale the resulting normalized Vector2D by
+
+##Returns
+Vector2D - If the `vector` has a length greater than 0, a new Vector2D with length equal to 1 in the same direction as `vector`,
+otherwise it will return `vector`
+
+```javascript
+var vec1 = new Vector2D(2, 0);
+var vec2 = new Vector2D(0, 0);
+var vec3 = new Vector2D(1, 0);
+
+var vec4 = vec1.normalize();    // vec4.x = 1, vec4.y = 0
+var vec5 = vec2.normalize();    // vec5 = vec2
+var vec6 = vec3.normalize(2);   // vec6.x = 2, vec6.y = 0
 ```

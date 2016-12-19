@@ -1,6 +1,17 @@
 var gulp = require('gulp');
 var KarmaServer = require('karma').Server;
 var q = require('q');
+var minify = require('gulp-minify');
+
+gulp.task('mini', function() {
+    gulp.src('vector2D.js')
+        .pipe(minify({
+            ext:{
+                min:'.min.js'
+            }
+        }))
+        .pipe(gulp.dest(''))
+});
 
 var testFunction = function (done) {
     'use strict';
